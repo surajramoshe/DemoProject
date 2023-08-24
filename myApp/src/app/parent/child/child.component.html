@@ -1,0 +1,26 @@
+<li style="list-style: decimal;">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>RefMenuID</td>
+        </tr>
+        <tr>
+            <td>{{node.id}}</td>
+            <td>{{node.refMenuId}}</td>
+            <td>
+                <button (click)="hideDetails()">Hide Details</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button (click)="onChange()"> show details</button>
+                <ul *ngIf="node.children.length > 0">
+                    <li *ngIf="check">
+                        <app-grand-child *ngFor="let child of node.children" [node]="child"></app-grand-child>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</li>
+<br>
